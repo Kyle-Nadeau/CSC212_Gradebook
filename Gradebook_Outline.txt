@@ -1,0 +1,39 @@
+For our implementation we will create a class student structured as following:
+THIS TEXT FILE IS FOR STUDENTS WITHIN THE GROUP AS A GENERAL STRUCTURE:
+
+Class Student:
+	private:
+		std::string name;
+		std::vector<string> lab_name;
+		std::vector<string> assignment_name;
+		std::vector<string> project_name;
+		std::vector<string> exam_name;
+		std::vector<float> lab_grade;
+		std::vector<float> assignment_grade;
+		std::vector<float> project_grade;
+		float exam;
+		float total_grade;
+		char letter_grade;
+	public:
+		get/set per each attribute;
+
+		display per each attribute;
+
+
+File input is
+
+<name>
+<lab_name_vector>
+<lab_grade_vector>
+<assignment_name_vector>
+<assignment_grade_vector>
+<project_name_vector>
+<project_grade_vector>
+<exam_name>
+<exam_grade>
+<whitespace>     //WHITESPACE SIGNALS TO LOOP AND THAT THE NEXT INPUT WILL BE A NEW NAME & GRADEBOOK
+
+
+
+		
+		
