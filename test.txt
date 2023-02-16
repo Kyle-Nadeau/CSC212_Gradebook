@@ -1,3 +1,10 @@
 Testing testing 1 2 3
 Zach A
 Alex B
+
+
+
+Group Meeting Times:
+2/16
+2/17
+2/20
