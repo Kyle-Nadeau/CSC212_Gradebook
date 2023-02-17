@@ -48,7 +48,7 @@ public:
     float get_total_grade();
     char get_letter_grade();
 
-protected:
+//protected:
     /*
      * TODO with setters, we could take in a single value and append it to the vector attribute or take in an entire vector at once
      */
@@ -71,9 +71,9 @@ protected:
 
     //Display or ToString methods for printing to console for each category - Individual, Category, Course
 
-    void display_individual(float grade, std::string name); // TODO Options: Take in just the values we want printed, find values in different method OR Take in vector of grades/names, and item we are searching for, logic for search included in single function
-    void display_category(std::vector<float> grades, std::vector<std::string> names);
-    void display_course(std::vector<float> grades, std::vector<std::string> names);
+    void display_individual(); // TODO Options: Take in just the values we want printed, find values in different method OR Take in vector of grades/names, and item we are searching for, logic for search included in single function
+    void display_category();
+    void display_course();
 
 };
 
