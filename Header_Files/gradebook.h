@@ -74,7 +74,7 @@ public:
     void display_individual(); // TODO Options: Take in just the values we want printed, find values in different method OR Take in vector of grades/names, and item we are searching for, logic for search included in single function
     void display_category();
     void display_course();
-
+    void drop_lowest_labs();
 };
 
 
