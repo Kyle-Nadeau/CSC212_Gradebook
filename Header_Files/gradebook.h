@@ -1,4 +1,3 @@
-
 #ifndef REVIEW_PROJECT_GRADEBOOK_H
 #define REVIEW_PROJECT_GRADEBOOK_H
 
@@ -48,18 +47,18 @@ public:
     float get_total_grade();
     char get_letter_grade();
 
-//protected:
-    /*
-     * TODO with setters, we could take in a single value and append it to the vector attribute or take in an entire vector at once
-     */
+    //protected:
+        /*
+         * TODO with setters, we could take in a single value and append it to the vector attribute or take in an entire vector at once
+         */
 
-    //Setters
+         //Setters
 
-    void set_name(std::string name);
-    void set_lab_names(std::vector<std::string> names);
-    void set_assignment_names(std::vector<std::string> names);
-    void set_project_names(std::vector<std::string> names);
-    void set_exam_name(std::string name);
+    void set_name(std::string student_name);
+    void set_lab_names(std::vector<std::string> names_of_labs);
+    void set_assignment_names(std::vector<std::string> names_of_assignments);
+    void set_project_names(std::vector<std::string> names_of_projects);
+    void set_exam_name(std::string name_of_exam);
 
     void set_lab_grades(std::vector<float> grades);
     void set_assignment_grades(std::vector<float> grades);
@@ -75,7 +74,7 @@ public:
     void display_category();
     void display_course();
     void drop_lowest_labs();
-};
 
+};
 
 #endif //REVIEW_PROJECT_GRADEBOOK_H
