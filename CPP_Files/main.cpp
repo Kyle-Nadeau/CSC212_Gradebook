@@ -12,20 +12,15 @@ int main(int argc, char* argv[])
     //This should all be input by the file, in the same order.
     int num_of_students;
     std::string student_name;
-    
-
     std::vector<std::string> lab_names;
     std::vector<float> lab_grades;
-
     std::vector<std::string> assignment_names;
     std::vector<float> assignment_grades;
-
     std::vector<std::string> project_names;
     std::vector<float> project_grades;
-
     std::string exam_name;
     float exam_grade;
-    
+
     //These two should be gotten from the class, I'm just creating them now in case of testing purposes(We can remove them later.)
     float total_grade;
     char letter_grade;
@@ -33,10 +28,8 @@ int main(int argc, char* argv[])
     //Needed in the for loop to break up whitespace input so that they can be input to vectors
     std::string lab_name;
     int lab_grade;
-
     std::string assignment_name;
     int assignment_grade;
-
     std::string project_name;
     int project_grade;
 
@@ -51,15 +44,15 @@ int main(int argc, char* argv[])
 
     std::getline(file_stream, file_line);
     std::istringstream s_stream(file_line);
-    
+
     //Getting number of students, which will be used for a for loop.
-    s_stream >> input_line; 
+    s_stream >> input_line;
     num_of_students = std::stoi(input_line);//This works because the number of students SHOULD be at the start of the file, aka the first line
 
-    gradebook* student_objs = new gradebook[num_of_students];//This should dynamically create n amount of objects, with n being 
+    gradebook* student_objs = new gradebook[num_of_students];//This should dynamically create n amount of objects, with n being
     //the num_of_students given by the file
-    
-    
+
+
     //Creating a loop to get the required data from the text file, and assigning it to different students.
     //A for loop is necessary to iterate through the objects being created. If you use a while, you'll need to define a counter and use that with it
     //or there will be no way to iterate through the objects.
@@ -89,10 +82,10 @@ int main(int argc, char* argv[])
         while (s_stream >> lab_grade)
         {
             lab_grades.push_back(lab_grade);
-           
+
         }
         student_objs[i].set_lab_grades(lab_grades);
-        
+
         //Getting assignment names
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
@@ -146,7 +139,7 @@ int main(int argc, char* argv[])
             student_objs[i].set_exam_name(exam_name);
 
         }
-        
+
         //Getting exam grade
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
@@ -168,6 +161,114 @@ int main(int argc, char* argv[])
         student_name = student_objs[i].get_name();
         std::cout << student_name << std::endl;
     }
+
+    //User interface menu
+    std::string name;
+    std::string input = "";
+    std::string secondary = "";
+    std::string tertiary = "";
+    while(input != "Exit"){
+        std::cout<< "Choose student name:" << std::endl;
+        for(int i=0;i<num_of_students;i++){
+            std::cout<< student_objs[i].get_name()<<std::endl;
+        }
+        std::cin >> name;
+        std::cout<< "Choose number of desired output:"<<std::endl;
+        std::cout <<"1. Individual" <<std::endl;
+        std::cout << "2. Category" <<std::endl;
+        std::cout <<"3. Course" << std::endl;
+        std::cout << "Type Exit to end program."<<std::endl;
+        std::cin >> input;
+
+        //Might want an error checker to make sure input is a valid input
+
+        switch(std::stoi(input)){
+            case 1:
+                std::cout<<"Choose number of category:"<<std::endl;
+                std::cout<<"1. Labs\n2.Assignments\n3.Project\n4.Exam"<<std::endl;
+                std::cin>>secondary;
+                switch(std::stoi(secondary)){
+                    case 1:
+                        std::cout<<"Enter lab number:"<<std::endl;
+                        std::cin>>tertiary;
+
+                        break;
+                    case 2:
+                        std::cout<<"Enter assignment number:"<<std::endl;
+                        std::cin>>tertiary;
+
+                        break;
+
+                    case 3:
+                        std::cout<<"Enter project name:"<<std::endl;
+                        std::cin>>tertiary;
+
+                        break;
+
+                    case 4:
+
+                        break;
+                    default:
+                        std::cout<<"Invalid input."<<std::endl;
+                }
+
+                break;
+            case 2:
+                std::cout<<"Choose number of category:"<<std::endl;
+                std::cout<<"1. Labs\n2.Assignments\n3.Project\n4.Exam"<<std::endl;
+                std::cin>>secondary;
+                switch(std::stoi(secondary)){
+                    case 1:
+
+                        break;
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    case 4:
+
+                        break;
+
+                    default:
+                        std::cout<<"Invalid input."<<std::endl;
+                }
+                break;
+
+            case 3:
+                std::cout<<"Choose number of type:"<<std::endl;
+                std::cout<<"1. All grades and course total"<<std::endl;
+                std::cout<<"2. Only category totals and course overall"<<std::endl;
+                std::cout <<"3. Only course total"<<std::endl;
+                std::cin >> secondary;
+
+                switch(std::stoi(secondary)){
+                    case 1:
+
+                        break;
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+
+                    default:
+                        std::cout<<"Invalid input."<<std::endl;
+                }
+
+                break;
+
+            default:
+                std::cout<<"Invalid input."<<std::endl;
+        }
+
+    }
+    file_stream.close();
     delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
     return 0;
 }
