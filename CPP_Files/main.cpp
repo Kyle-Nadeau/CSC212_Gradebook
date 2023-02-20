@@ -168,7 +168,10 @@ int main(int argc, char* argv[])
     }
     */
     //User interface menu
-
+    //TODO Check user inputs
+    //TODO Call functions on objects for each option
+    //TODO Output file
+    
     std::string name = "";
     std::string input = "";
     int in;
@@ -192,7 +195,7 @@ int main(int argc, char* argv[])
         }
         std::cout << "Type 1 to view or 2 to change grades." << std::endl;
         std::cin >> in;
-        if(std::cin.fail()){
+        if(std::cin.fail()||(in<1 ||in>2)){
             do {
                 std::cout << "Invalid input. Try again." << std::endl;
                 std::cin.clear();
@@ -211,7 +214,8 @@ int main(int argc, char* argv[])
                 if (input == "Exit") {
                     break;
                 }
-                while(input!= "1" || input != "2" || input != "3"){
+                
+                while(input!= "1" && input != "2" && input != "3"){
                     std::cout<<"Enter 1, 2, or 3:"<<std::endl;
                     std::cin >> input;
                 }
@@ -226,7 +230,7 @@ int main(int argc, char* argv[])
                             case 1:
                                 std::cout << "Enter lab number:" << std::endl;
                                 std::cin >> tertiary;
-
+                                
 
                                 break;
                             case 2:
