@@ -5,6 +5,9 @@
 #include <fstream>
 #include <sstream>
 //Students.cpp is Gradebook.cpp
+
+int get_obj_from_name(std::string name);
+
 int main(int argc, char* argv[])
 {
     std::string file_line;
@@ -167,6 +170,7 @@ int main(int argc, char* argv[])
 
     std::string name = "";
     std::string input = "";
+    int in;
     std::string secondary = "";
     std::string tertiary = "";
     while(input != "Exit") {
@@ -175,109 +179,146 @@ int main(int argc, char* argv[])
             std::cout << student_objs[i].get_name() << std::endl;
         }
         std::cin >> name;
-        std::cout << "Type 1 to view or 2 to change grades." << std::endl;
-        std::cin >> input;
-
-        if (stoi(input) == 1) {
-            std::cout << "Choose number of desired output:" << std::endl;
-            std::cout << "1. Individual" << std::endl;
-            std::cout << "2. Category" << std::endl;
-            std::cout << "3. Course" << std::endl;
-            std::cout << "Type Exit to end program." << std::endl;
-            std::cin >> input;
-            if(input =="Exit"){
-                break;
+        int index1= get_obj_from_name(name);
+        while(index1==-1){
+            std::cout<<"Invalid student name."<< std::endl;
+            std::cout << "Choose student name:" << std::endl;
+            for (int i = 0; i < num_of_students; i++) {
+                std::cout << student_objs[i].get_name() << std::endl;
             }
-            //Might want an error checker to make sure input is a valid input
-            switch (stoi(input)) {
-                case 1:
-                    std::cout << "Choose number of category:" << std::endl;
-                    std::cout << "1. Labs\n2.Assignments\n3.Project\n4.Exam" << std::endl;
-                    std::cin >> secondary;
-                    switch (std::stoi(secondary)) {
-                        case 1:
-                            std::cout << "Enter lab number:" << std::endl;
-                            std::cin >> tertiary;
-
-                            break;
-                        case 2:
-                            std::cout << "Enter assignment number:" << std::endl;
-                            std::cin >> tertiary;
-
-                            break;
-
-                        case 3:
-                            std::cout << "Enter project name:" << std::endl;
-                            std::cin >> tertiary;
-
-                            break;
-
-                        case 4:
-
-                            break;
-                        default:
-                            std::cout << "Invalid input." << std::endl;
-                    }
-
+            std::cin >> name;
+            index1= get_obj_from_name(name);
+        }
+        std::cout << "Type 1 to view or 2 to change grades." << std::endl;
+        std::cin >> in;
+        if(std::cin.fail()){
+            std::cout<<"Invalid input."<<std::endl;
+            std::cin >> in;
+        }
+        else {
+            if (stoi(input) == 1) {
+                std::cout << "Choose number of desired output:" << std::endl;
+                std::cout << "1. Individual" << std::endl;
+                std::cout << "2. Category" << std::endl;
+                std::cout << "3. Course" << std::endl;
+                std::cout << "Type Exit to end program." << std::endl;
+                std::cin >> input;
+                if (input == "Exit") {
                     break;
-                case 2:
-                    std::cout << "Choose number of category:" << std::endl;
-                    std::cout << "1. Labs\n2.Assignments\n3.Project\n4.Exam" << std::endl;
-                    std::cin >> secondary;
-                    switch (std::stoi(secondary)) {
-                        case 1:
+                }
+                //Might want an error checker to make sure input is a valid input
+                switch (stoi(input)) {
+                    case 1:
+                        std::cout << "Choose number of category:" << std::endl;
+                        std::cout << "1. Labs\n2.Assignments\n3.Project\n4.Exam" << std::endl;
+                        std::cin >> secondary;
+                        switch (std::stoi(secondary)) {
+                            case 1:
+                                std::cout << "Enter lab number:" << std::endl;
+                                std::cin >> tertiary;
 
-                            break;
-                        case 2:
 
-                            break;
+                                break;
+                            case 2:
+                                std::cout << "Enter assignment number:" << std::endl;
+                                std::cin >> tertiary;
 
-                        case 3:
+                                break;
 
-                            break;
+                            case 3:
+                                std::cout << "Enter project name:" << std::endl;
+                                std::cin >> tertiary;
 
-                        case 4:
+                                break;
 
-                            break;
+                            case 4:
 
-                        default:
-                            std::cout << "Invalid input." << std::endl;
-                    }
-                    break;
+                                break;
+                            default:
+                                std::cout << "Invalid input." << std::endl;
+                        }
 
-                case 3:
-                    std::cout << "Choose number of type:" << std::endl;
-                    std::cout << "1. All grades and course total" << std::endl;
-                    std::cout << "2. Only category totals and course overall" << std::endl;
-                    std::cout << "3. Only course total" << std::endl;
-                    std::cin >> secondary;
+                        break;
+                    case 2:
+                        std::cout << "Choose number of category:" << std::endl;
+                        std::cout << "1. Labs\n2.Assignments\n3.Project\n4.Exam" << std::endl;
+                        std::cin >> secondary;
+                        switch (std::stoi(secondary)) {
+                            case 1:
 
-                    switch (std::stoi(secondary)) {
-                        case 1:
+                                break;
+                            case 2:
 
-                            break;
-                        case 2:
+                                break;
 
-                            break;
+                            case 3:
 
-                        case 3:
+                                break;
 
-                            break;
+                            case 4:
 
-                        default:
-                            std::cout << "Invalid input." << std::endl;
-                    }
+                                break;
 
-                    break;
+                            default:
+                                std::cout << "Invalid input." << std::endl;
+                        }
+                        break;
 
-                default:
-                    std::cout << "Invalid input." << std::endl;
+                    case 3:
+                        std::cout << "Choose number of type:" << std::endl;
+                        std::cout << "1. All grades and course total" << std::endl;
+                        std::cout << "2. Only category totals and course overall" << std::endl;
+                        std::cout << "3. Only course total" << std::endl;
+                        std::cin >> secondary;
+
+                        switch (std::stoi(secondary)) {
+                            case 1:
+
+                                break;
+                            case 2:
+
+                                break;
+
+                            case 3:
+
+                                break;
+
+                            default:
+                                std::cout << "Invalid input." << std::endl;
+                        }
+
+                        break;
+
+                    default:
+                        std::cout << "Invalid input." << std::endl;
+                }
             }
         }
-
     }
 
     file_stream.close();
     //delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
     return 0;
+}
+
+int get_obj_from_name(std::string name){
+    int index;
+    if(name == "kyle"){
+        index = 0;
+        return index;
+    }
+    if(name == "stephen"){
+        index = 1;
+        return index;
+    }
+    if(name == "zach"){
+        index = 2;
+        return index;
+    }
+    if(name == "alex"){
+        index = 3;
+        return index;
+    }
+    else
+        return -1;
 }
