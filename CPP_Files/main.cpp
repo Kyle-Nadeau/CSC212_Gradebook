@@ -4,6 +4,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <limits>
 //Students.cpp is Gradebook.cpp
 
 int get_obj_from_name(std::string name);
@@ -192,11 +193,15 @@ int main(int argc, char* argv[])
         std::cout << "Type 1 to view or 2 to change grades." << std::endl;
         std::cin >> in;
         if(std::cin.fail()){
-            std::cout<<"Invalid input."<<std::endl;
-            std::cin >> in;
+            do {
+                std::cout << "Invalid input. Try again." << std::endl;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                std::cin >> in;
+            }
+            while(std::cin.fail()||(in<1 ||in>2));
         }
-        else {
-            if (stoi(input) == 1) {
+            if (in== 1) {
                 std::cout << "Choose number of desired output:" << std::endl;
                 std::cout << "1. Individual" << std::endl;
                 std::cout << "2. Category" << std::endl;
@@ -206,6 +211,11 @@ int main(int argc, char* argv[])
                 if (input == "Exit") {
                     break;
                 }
+                while(input!= "1" || input != "2" || input != "3"){
+                    std::cout<<"Enter 1, 2, or 3:"<<std::endl;
+                    std::cin >> input;
+                }
+
                 //Might want an error checker to make sure input is a valid input
                 switch (stoi(input)) {
                     case 1:
@@ -236,6 +246,7 @@ int main(int argc, char* argv[])
                                 break;
                             default:
                                 std::cout << "Invalid input." << std::endl;
+
                         }
 
                         break;
@@ -293,7 +304,6 @@ int main(int argc, char* argv[])
                         std::cout << "Invalid input." << std::endl;
                 }
             }
-        }
     }
 
     file_stream.close();
