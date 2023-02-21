@@ -5,6 +5,7 @@
 
 //Incredibly basic setup right now
 
+gradebook::gradebook(){};
 
 //Setters
 void gradebook::set_name(std::string student_name)
