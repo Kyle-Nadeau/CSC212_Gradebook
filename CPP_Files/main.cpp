@@ -57,7 +57,6 @@ int main(int argc, char* argv[])
     gradebook* student_objs = new gradebook[num_of_students];//This should dynamically create n amount of objects, with n being
     //the num_of_students given by the file
 
-
     //Creating a loop to get the required data from the text file, and assigning it to different students.
     //A for loop is necessary to iterate through the objects being created. If you use a while, you'll need to define a counter and use that with it
     //or there will be no way to iterate through the objects.
@@ -178,7 +177,7 @@ int main(int argc, char* argv[])
     std::string secondary = "";
     std::string tertiary = "";
     // On main menu, while user chooses not to exit present with further options
-    while(input != "Exit") {  
+    while(input != "Exit") {
         //Choose student which you want to view or change grades for via entering their name
         std::cout << "Choose student name:" << std::endl;
         //Give user all names possible to choose from
@@ -192,10 +191,10 @@ int main(int argc, char* argv[])
         while(index1==-1){
             std::cout<<"Invalid student name."<< std::endl;
             std::cout << "Choose student name:" << std::endl;
-           
+
             for (int i = 0; i < num_of_students; i++) {
                 std::cout << student_objs[i].get_name() << std::endl;
-            }            
+            }
             std::cin >> name;
             index1= get_obj_from_name(name);
         }
@@ -245,20 +244,16 @@ int main(int argc, char* argv[])
                     //If secondary is valid, convert to integer for switch
                     switch (std::stoi(secondary)) {
                         case 1:
-                            std::cout << "Enter lab number:" << std::endl;
-                            std::cin >> tertiary;
                             //TODO add failsafes for tertiary inputs
-                            do{ 
+                            do{
                                 std::cout << "Enter lab number:" << std::endl;
                                 std::cin >> tertiary;
                             }
                             while(tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4" && tertiary != "5" && tertiary != "6" && tertiary != "7" &&
-                                 tertiary != "8" && tertiary != "9" && tertiary != "10" && tertiary != "11" && tertiary != "12");
-
+                                  tertiary != "8" && tertiary != "9" && tertiary != "10" && tertiary != "11" && tertiary != "12");
+                            student_objs[get_obj_from_name(name)].display_individual(secondary,tertiary);
                             break;
                         case 2:
-                            std::cout << "Enter assignment number:" << std::endl;
-                            std::cin >> tertiary;
                             do{
                                 std::cout << "Enter assignment number:" << std::endl;
                                 std::cin >> tertiary;
@@ -267,17 +262,15 @@ int main(int argc, char* argv[])
                             break;
 
                         case 3:
-                            std::cout << "Enter project name:" << std::endl;
-                            std::cin >> tertiary;
                             do{
-                                std::cout << "Enter project name:" << std::endl;
+                                std::cout << "Enter project number:" << std::endl;
                                 std::cin >> tertiary;
                             }
                             while(tertiary != "1" && tertiary != "2");
                             break;
 
                         case 4:
-
+                            //TODO Exam display
                             break;
                         default:
                             std::cout << "Invalid input." << std::endl;
@@ -286,10 +279,6 @@ int main(int argc, char* argv[])
 
                     break;
                 case 2:
-
-                    std::cout << "Choose number of category:" << std::endl;
-                    std::cout << "1.Labs\n2.Assignments\n3.Project\n4.Exam" << std::endl;
-                    std::cin >> secondary;
                     do{
                         std::cout << "Choose number of category:" << std::endl;
                         std::cout << "1.Labs\n2.Assignments\n3.Project\n4.Exam" << std::endl;
@@ -299,18 +288,18 @@ int main(int argc, char* argv[])
 
                     switch (std::stoi(secondary)) {
                         case 1:
-
+                            //TODO display lab category
                             break;
                         case 2:
-
+                            //TODO display assignment category
                             break;
 
                         case 3:
-
+                            //TODO display Project category
                             break;
 
                         case 4:
-
+                            //TODO display exam category (?? there's only one lol)
                             break;
 
                         default:
@@ -327,14 +316,14 @@ int main(int argc, char* argv[])
 
                     switch (std::stoi(secondary)) {
                         case 1:
-
+                            //TODO display all individual grades and course total
                             break;
                         case 2:
-
+                            //TODO display all category totals and course total
                             break;
 
                         case 3:
-
+                            //TODO display course total
                             break;
 
                         default:
@@ -346,6 +335,10 @@ int main(int argc, char* argv[])
                 default:
                     std::cout << "Invalid input." << std::endl;
             }
+        }
+        //If user chose 2 give the change menu
+        else{
+
         }
     }
 
@@ -375,5 +368,3 @@ int get_obj_from_name(std::string name){
     else
         return -1;
 }
-
-
