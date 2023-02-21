@@ -30,7 +30,8 @@ public:
     /*TODO Decide if we need all of these getter methods once we design other methods - Do we want getter fetching entire vector or a single item from vector?
     /TODO Will technically need to be able to do both, but we can handle selecting individual items from vector in another function?
      */
-
+    //Default constructor
+    gradebook();
     //Getters
 
     std::string get_name();
