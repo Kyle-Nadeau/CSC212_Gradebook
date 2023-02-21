@@ -54,7 +54,18 @@ int main(int argc, char* argv[])
 
     num_of_students = std::stoi(input_line); //This works because the number of students SHOULD be at the start of the file, aka the first line
 
-    gradebook* student_objs = new gradebook[num_of_students];//This should dynamically create n amount of objects, with n being
+    gradebook kyle;
+    gradebook zach;
+    gradebook stephen;
+    gradebook alex;
+
+    std::vector<gradebook> student_objs;
+    student_objs.push_back(kyle);
+    student_objs.push_back(stephen);
+    student_objs.push_back(zach);
+    student_objs.push_back(alex);
+
+   // gradebook* student_objs = new gradebook[num_of_students];//This should dynamically create n amount of objects, with n being
     //the num_of_students given by the file
 
     //Creating a loop to get the required data from the text file, and assigning it to different students.
