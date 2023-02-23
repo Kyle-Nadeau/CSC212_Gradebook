@@ -61,6 +61,10 @@ public:
     void set_project_names(std::vector<std::string> names_of_projects);
     void set_exam_name(std::string name_of_exam);
 
+    void set_individual_lab(int index, float value);
+    void set_individual_assignment(int index, float value);
+    void set_individual_project(int index, float value);
+    
     void set_lab_grades(std::vector<float> grades);
     void set_assignment_grades(std::vector<float> grades);
     void set_project_grades(std::vector<float> grades);
