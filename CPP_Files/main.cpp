@@ -337,10 +337,126 @@ int main(int argc, char* argv[])
             }
         }
             //If user chose 2 give the change menu
-        else {
+        //TODO ######################## START OF CHANGE FUNCTION
+        else if(in == 2){
 
+            do{
+                std::cout << "Choose number of category:" << std::endl;
+                std::cout << "1.Labs\n2.Assignments\n3.Project\n4.Exam" << std::endl;
+                std::cin >> secondary;
+            }
+            while(secondary != "1" && secondary != "2" && secondary != "3" && secondary != "4");
+            //TODO DO WHILE AFTER
+            int lab_index;
+            float lab_val;
+
+            switch (std::stoi(secondary)) {
+                case 1:
+
+                    do{
+                        std::cout << "Enter lab number:" << std::endl;
+                        std::cin >> tertiary;
+                    }
+                    while(tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4" && tertiary != "5" && tertiary != "6" && tertiary != "7" &&
+                          tertiary != "8" && tertiary != "9" && tertiary != "10" && tertiary != "11" && tertiary != "12");
+
+                    lab_index = std::stoi(tertiary);
+
+                    std::cout<<"Enter the updated grade value: "<<std::endl;
+                    std::cin >> lab_val;
+                    if(std::cin.fail()||(lab_val<0 ||lab_val>20)){
+                        do {
+                            std::cout << "Invalid input. Try again." << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                            std::cin >> lab_val;
+                        }
+                        while(std::cin.fail()||(lab_val>20 ||lab_val<0));
+                    }
+
+                    student_objs[get_obj_from_name(name)].set_individual_lab(lab_index, lab_val);
+
+                    break;
+                case 2:
+
+                    do{
+                        std::cout << "Enter assignment number:" << std::endl;
+                        std::cin >> tertiary;
+                    }
+                    while(tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4");
+                    int assignment_index;
+                    assignment_index = std::stoi(tertiary);
+                    float assignment_val;
+                    std::cout<<"Enter the updated grade value: "<<std::endl;
+                    std::cin >> assignment_val;
+
+                    if(std::cin.fail()||(assignment_val<0 ||assignment_val>50)){
+                        do {
+                            std::cout << "Invalid input. Try again." << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                            std::cin >> assignment_val;
+                        }
+                        while(std::cin.fail()||(assignment_val>20 ||assignment_val<0));
+                    }
+
+                    student_objs[get_obj_from_name(name)].set_individual_assignment(assignment_index, assignment_val);
+
+
+                    break;
+
+                case 3:
+
+                    do{
+                        std::cout << "Enter project number:" << std::endl;
+                        std::cin >> tertiary;
+                    }
+                    while(tertiary != "1" && tertiary != "2");
+                    int project_index;
+                    project_index = std::stoi(tertiary);
+                    float project_val;
+                    std::cout<<"Enter the updated grade value: "<<std::endl;
+                    std::cin >> project_val;
+
+                    if(std::cin.fail()||(project_val<0 ||project_val>20)){
+                        do {
+                            std::cout << "Invalid input. Try again." << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                            std::cin >> project_val;
+                        }
+                        while(std::cin.fail()||(project_val>20 ||project_val<0));
+                    }
+
+                    student_objs[get_obj_from_name(name)].set_individual_project(project_index, project_val);
+                    break;
+
+                case 4:
+                    float exam_val;
+                    std::cout<<"Enter the updated grade value: "<<std::endl;
+                    std::cin>> exam_val;
+
+                    if(std::cin.fail()||(exam_val<0 ||exam_val>100)){
+                        do {
+                            std::cout << "Invalid input. Try again." << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                            std::cin >> exam_val;
+                        }
+                        while(std::cin.fail()||(exam_val>20 ||exam_val<0));
+                    }
+
+
+                    student_objs[get_obj_from_name(name)].set_exam_grade(exam_val);
+                    name.clear();
+                    break;
+                default:
+                    std::cout << "Invalid input." << std::endl;
+
+
+            }
         }
-    }
+        //TODO END OF CHANGE SECTION
 
     file_stream.close();
     delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
