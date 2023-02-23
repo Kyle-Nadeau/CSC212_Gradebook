@@ -43,6 +43,18 @@ void gradebook::set_exam_name(std::string name_of_exam)
 
 
 }
+void gradebook::set_individual_lab(int index, float value)
+{
+        lab_grades[index - 1] = value;
+}
+void gradebook::set_individual_assignment(int index, float value)
+{
+    assignment_grades[index - 1] = value;
+}
+void gradebook::set_individual_project(int index, float value)
+{
+    project_grades[index - 1] = value;
+}
 
 
 //
