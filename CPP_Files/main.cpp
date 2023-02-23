@@ -187,8 +187,12 @@ int main(int argc, char* argv[])
         for (int i = 0; i < num_of_students; i++) {
             std::cout << student_objs[i].get_name() << std::endl;
         }
-        //Get user first input
+        std::cout << "Type Exit to end program." << std::endl;
         std::cin >> name;
+        if (name == "Exit") {
+            break;
+        }
+        //Get user first input
         int index1 = get_obj_from_name(name);
         //Failsafe for menu incase user inputs an invalid name
         while (index1 == -1) {
@@ -255,6 +259,7 @@ int main(int argc, char* argv[])
                                 std::cout << "Enter assignment number:" << std::endl;
                                 std::cin >> tertiary;
                             } while (tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4");
+                            student_objs[get_obj_from_name(name)].display_individual(secondary, tertiary);
                             break;
 
                         case 3:
@@ -262,10 +267,11 @@ int main(int argc, char* argv[])
                                 std::cout << "Enter project number:" << std::endl;
                                 std::cin >> tertiary;
                             } while (tertiary != "1" && tertiary != "2");
+                            student_objs[get_obj_from_name(name)].display_individual(secondary, tertiary);
                             break;
 
                         case 4:
-                            //TODO Exam display
+                            std::cout << "Exam grade: \n" <<student_objs[get_obj_from_name(name)].get_exam_grade()<<"/100 points."<<std::endl;
                             break;
                         default:
                             std::cout << "Invalid input." << std::endl;
