@@ -2,10 +2,10 @@
 #include <iostream>
 #include <string>
 #include<vector>
-
+#include <algorithm>
 //Incredibly basic setup right now
 
-gradebook::gradebook(){};
+gradebook::gradebook() {};
 
 //Setters
 void gradebook::set_name(std::string student_name)
@@ -45,15 +45,15 @@ void gradebook::set_exam_name(std::string name_of_exam)
 }
 void gradebook::set_individual_lab(int index, float value)
 {
-        lab_grades[index - 1] = value;
+	lab_grades[index - 1] = value;
 }
 void gradebook::set_individual_assignment(int index, float value)
 {
-    assignment_grades[index - 1] = value;
+	assignment_grades[index - 1] = value;
 }
 void gradebook::set_individual_project(int index, float value)
 {
-    project_grades[index - 1] = value;
+	project_grades[index - 1] = value;
 }
 
 
@@ -136,22 +136,22 @@ std::vector<float> gradebook::get_project_grades()
 
 float gradebook::get_exam_grade()
 {
-	
+
 
 	return exam_grade;
 }
 float gradebook::get_total_grade()
 {
 	total_grade = 0;//This is to reset the total grade back to zero between calls.
-	for (int i = 0; i < lab_grades.size(); i++)
+	for (int i = 0; i < lab_grades_after_drop.size(); i++)
 	{
-		total_grade += lab_grades[i];
+		total_grade += lab_grades_after_drop[i];
 	}
 	for (int i = 0; i < assignment_grades.size(); i++)
 	{
 		total_grade += assignment_grades[i];
 	}
-	for (int i = 0; i < project_grades.size();i++)
+	for (int i = 0; i < project_grades.size(); i++)
 	{
 		total_grade += project_grades[i];
 	}
@@ -215,30 +215,35 @@ char gradebook::get_letter_grade()
 }
 void gradebook::drop_lowest_labs()
 {
+	//Making sure the lab grades after drop is cleared, so it doesn't keep the values between calls if it is called more than once.
+	lab_grades_after_drop.clear();
 	//This function should sort the vector of labs, then drop the lowest 2. By default there will ALWAYS be 12 labs, even if the student didn't do one.
-	lab_grades;
-
+	
 	for (int i = 0; i < lab_grades.size(); i++)
 	{
-
+		lab_grades_after_drop.push_back(lab_grades[i]);
 	}
+
+	sort(lab_grades_after_drop.begin(), lab_grades_after_drop.end());
+	//Removing the bottom two grades.
+	lab_grades.erase(lab_grades_after_drop.begin(), lab_grades_after_drop.begin() + 2);
 }
 //The display functions
 void gradebook::display_individual(std::string category, std::string num)
 {
-    switch (std::stoi(category)) {
-        case 1:
-            std::cout<< lab_names[std::stoi(num)] <<":\n"<<lab_grades[std::stoi(num)];
-            break;
-        case 2:
+	switch (std::stoi(category)) {
+	case 1:
+		std::cout << lab_names[std::stoi(num)] << ":\n" << lab_grades[std::stoi(num)];
+		break;
+	case 2:
 
-            break;
+		break;
 
-        case 3:
+	case 3:
 
-            break;
+		break;
 
-    }
+	}
 }
 void gradebook::display_category()
 {
