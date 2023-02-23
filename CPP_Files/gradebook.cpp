@@ -231,19 +231,25 @@ void gradebook::drop_lowest_labs()
 //The display functions
 void gradebook::display_individual(std::string category, std::string num)
 {
-	switch (std::stoi(category)) {
-	case 1:
-		std::cout << lab_names[std::stoi(num)] << ":\n" << lab_grades[std::stoi(num)];
-		break;
-	case 2:
+    int number = std::stoi(num)-1;
+    switch (std::stoi(category)) {
+        case 1:
+            std::cout<< "Lab name: "<<lab_names[number] <<":\n"<<lab_grades[number]<<"/20 points."<<std::endl;
+            break;
+        case 2:
+            std::cout<< "Assignment name: "<<assignment_names[number] <<":\n"<<assignment_grades[number]<<"/50 points." <<std::endl;
+            break;
 
-		break;
-
-	case 3:
-
-		break;
-
-	}
+        case 3:
+            if(std::stoi(category)==1) {
+                std::cout << "Project name: "<<project_names[number] << ":\n" << project_grades[number]<<"/150 points."<<std::endl;
+                break;
+            }
+            else{
+                std::cout << "Project name: "<<project_names[number] << ":\n" << project_grades[number]<<"/350 points."<<std::endl;
+                break;
+            }
+    }
 }
 void gradebook::display_category()
 {
