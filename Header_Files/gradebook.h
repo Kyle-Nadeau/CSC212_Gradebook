@@ -20,6 +20,7 @@ private:
     std::vector<float> lab_grades;
     std::vector<float> assignment_grades;
     std::vector<float> project_grades;
+    std::vector<float> lab_grades_after_drop;
 
     float exam_grade;
     float total_grade;
@@ -30,7 +31,7 @@ public:
     /*TODO Decide if we need all of these getter methods once we design other methods - Do we want getter fetching entire vector or a single item from vector?
     /TODO Will technically need to be able to do both, but we can handle selecting individual items from vector in another function?
      */
-    //Default constructor
+     //Default constructor
     gradebook();
     //Getters
 
@@ -64,7 +65,7 @@ public:
     void set_individual_lab(int index, float value);
     void set_individual_assignment(int index, float value);
     void set_individual_project(int index, float value);
-    
+
     void set_lab_grades(std::vector<float> grades);
     void set_assignment_grades(std::vector<float> grades);
     void set_project_grades(std::vector<float> grades);
@@ -75,7 +76,7 @@ public:
 
     //Display or ToString methods for printing to console for each category - Individual, Category, Course
 
-    void display_individual(std::string category, std::string num );
+    void display_individual(std::string category, std::string num);
     void display_category();
     void display_course();
     void drop_lowest_labs();
