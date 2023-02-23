@@ -212,9 +212,21 @@ void gradebook::drop_lowest_labs()
 	}
 }
 //The display functions
-void gradebook::display_individual()
+void gradebook::display_individual(std::string category, std::string num)
 {
-	std::cout << name;
+    switch (std::stoi(category)) {
+        case 1:
+            std::cout<< lab_names[std::stoi(num)] <<":\n"<<lab_grades[std::stoi(num)];
+            break;
+        case 2:
+
+            break;
+
+        case 3:
+
+            break;
+
+    }
 }
 void gradebook::display_category()
 {
