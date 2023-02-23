@@ -251,8 +251,30 @@ void gradebook::display_individual(std::string category, std::string num)
             }
     }
 }
-void gradebook::display_category()
+void gradebook::display_category(std::string category)
 {
+    float cat_total;
+    int cat = std::stoi(category);
+    switch(cat){
+        case 1:
+            for(int i=0;i<lab_grades.size();i++){
+                cat_total += lab_grades[i];
+            }
+            std::cout<<"Lab category total:\n"<<cat_total<<"/200 points."<<std::endl;
+            break;
+        case 2:
+            for(int i=0;i<assignment_grades.size();i++){
+                cat_total += assignment_grades[i];
+            }
+            std::cout<<"Assignment total:\n"<<cat_total<<"/200 points."<<std::endl;
+            break;
+
+
+        case 3:
+
+            break;
+    }
+
 
 }
 void gradebook::display_course()
