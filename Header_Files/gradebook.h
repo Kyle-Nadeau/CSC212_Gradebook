@@ -24,14 +24,14 @@ private:
 
     float exam_grade;
     float total_grade;
-    char letter_grade;
+    std::string letter_grade;
 
 public:
 
     /*TODO Decide if we need all of these getter methods once we design other methods - Do we want getter fetching entire vector or a single item from vector?
     /TODO Will technically need to be able to do both, but we can handle selecting individual items from vector in another function?
      */
-     //Default constructor
+    //Default constructor
     gradebook();
     //Getters
 
@@ -47,14 +47,14 @@ public:
 
     float get_exam_grade();
     float get_total_grade();
-    char get_letter_grade();
+    std::string get_letter_grade();
 
     //protected:
-        /*
-         * TODO with setters, we could take in a single value and append it to the vector attribute or take in an entire vector at once
-         */
+    /*
+     * TODO with setters, we could take in a single value and append it to the vector attribute or take in an entire vector at once
+     */
 
-         //Setters
+    //Setters
 
     void set_name(std::string student_name);
     void set_lab_names(std::vector<std::string> names_of_labs);
@@ -72,12 +72,12 @@ public:
 
     void set_exam_grade(float grade);
     void set_total_grade(float grade);
-    void set_letter_grade(char grade);
+    void set_letter_grade(std::string grade);
 
     //Display or ToString methods for printing to console for each category - Individual, Category, Course
 
     void display_individual(std::string category, std::string num);
-    void display_category(std::string category);
+    void display_category(std::string);
     void display_course();
     void drop_lowest_labs();
 
