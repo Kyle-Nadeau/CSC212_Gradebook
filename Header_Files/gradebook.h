@@ -77,7 +77,7 @@ public:
     //Display or ToString methods for printing to console for each category - Individual, Category, Course
 
     void display_individual(std::string category, std::string num);
-    void display_category();
+    void display_category(std::string category);
     void display_course();
     void drop_lowest_labs();
 
