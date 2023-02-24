@@ -9,8 +9,7 @@
 
 int get_obj_from_name(std::string name);
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
     std::string file_line;
 
     //This should all be input by the file, in the same order.
@@ -27,7 +26,7 @@ int main(int argc, char* argv[])
 
     //These two should be gotten from the class, I'm just creating them now in case of testing purposes(We can remove them later.)
     float total_grade;
-    char letter_grade;
+    std::string letter_grade;
 
     //Needed in the for loop to break up whitespace input so that they can be input to vectors
     std::string lab_name;
@@ -52,7 +51,8 @@ int main(int argc, char* argv[])
     //Getting number of students, which will be used for a for loop.
     s_stream >> input_line;
 
-    num_of_students = std::stoi(input_line); //This works because the number of students SHOULD be at the start of the file, aka the first line
+    num_of_students = std::stoi(
+            input_line); //This works because the number of students SHOULD be at the start of the file, aka the first line
 
     /*gradebook kyle;
     gradebook zach;
@@ -64,14 +64,13 @@ int main(int argc, char* argv[])
     student_objs.push_back(zach);
     student_objs.push_back(alex);*/
 
-    gradebook* student_objs = new gradebook[num_of_students];//This should dynamically create n amount of objects, with n being
+    gradebook *student_objs = new gradebook[num_of_students];//This should dynamically create n amount of objects, with n being
     //the num_of_students given by the file
 
     //Creating a loop to get the required data from the text file, and assigning it to different students.
     //A for loop is necessary to iterate through the objects being created. If you use a while, you'll need to define a counter and use that with it
     //or there will be no way to iterate through the objects.
-    for (int i = 0; i < num_of_students; i++)
-    {
+    for (int i = 0; i < num_of_students; i++) {
         //The following code is a mess, there definetely is a way to clean it up later, but it should all run, and assign the values to a new object.
         //Getting name
         std::getline(file_stream, file_line);
@@ -83,7 +82,8 @@ int main(int argc, char* argv[])
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
         s_stream.seekg(0);
-        while (s_stream >> lab_name)//This will go through the line, skipping any white space character, and then assign them to the lab name vector
+        while (s_stream
+                >> lab_name)//This will go through the line, skipping any white space character, and then assign them to the lab name vector
         {
             lab_names.push_back(lab_name);
         }
@@ -93,8 +93,7 @@ int main(int argc, char* argv[])
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
         s_stream.clear();
-        while (s_stream >> lab_grade)
-        {
+        while (s_stream >> lab_grade) {
             lab_grades.push_back(lab_grade);
 
         }
@@ -104,8 +103,7 @@ int main(int argc, char* argv[])
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
         s_stream.clear();
-        while (s_stream >> assignment_name)
-        {
+        while (s_stream >> assignment_name) {
             assignment_names.push_back(assignment_name);
 
         }
@@ -115,8 +113,7 @@ int main(int argc, char* argv[])
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
         s_stream.clear();
-        while (s_stream >> assignment_grade)
-        {
+        while (s_stream >> assignment_grade) {
             assignment_grades.push_back(assignment_grade);
 
         }
@@ -126,8 +123,7 @@ int main(int argc, char* argv[])
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
         s_stream.clear();
-        while (s_stream >> project_name)
-        {
+        while (s_stream >> project_name) {
             project_names.push_back(project_name);
 
         }
@@ -137,8 +133,7 @@ int main(int argc, char* argv[])
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
         s_stream.clear();
-        while (s_stream >> project_grade)
-        {
+        while (s_stream >> project_grade) {
             project_grades.push_back(project_grade);
 
         }
@@ -148,8 +143,7 @@ int main(int argc, char* argv[])
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
         s_stream.clear();
-        while (s_stream >> exam_name)
-        {
+        while (s_stream >> exam_name) {
             student_objs[i].set_exam_name(exam_name);
 
         }
@@ -158,8 +152,7 @@ int main(int argc, char* argv[])
         std::getline(file_stream, file_line);
         s_stream.str(file_line);
         s_stream.clear();
-        while (s_stream >> exam_grade)
-        {
+        while (s_stream >> exam_grade) {
             student_objs[i].set_exam_grade(exam_grade);
 
         }
@@ -209,13 +202,13 @@ int main(int argc, char* argv[])
         std::cout << "Type 1 to view or 2 to change grades." << std::endl;
         std::cin >> in;
         //Failsafe for if user inputs a value that is not 1 or 2 (string etc)
-        if (std::cin.fail() || (in < 1 || in>2)) {
+        if (std::cin.fail() || (in < 1 || in > 2)) {
             do {
                 std::cout << "Invalid input. Try again." << std::endl;
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cin >> in;
-            } while (std::cin.fail() || (in < 1 || in>2));
+            } while (std::cin.fail() || (in < 1 || in > 2));
         }
         //If user chose 1 give the view menu
         if (in == 1) {
@@ -250,8 +243,10 @@ int main(int argc, char* argv[])
                             do {
                                 std::cout << "Enter lab number:" << std::endl;
                                 std::cin >> tertiary;
-                            } while (tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4" && tertiary != "5" && tertiary != "6" && tertiary != "7" &&
-                                     tertiary != "8" && tertiary != "9" && tertiary != "10" && tertiary != "11" && tertiary != "12");
+                            } while (tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4" &&
+                                     tertiary != "5" && tertiary != "6" && tertiary != "7" &&
+                                     tertiary != "8" && tertiary != "9" && tertiary != "10" && tertiary != "11" &&
+                                     tertiary != "12");
                             student_objs[get_obj_from_name(name)].display_individual(secondary, tertiary); //Broken line
                             break;
                         case 2:
@@ -271,7 +266,8 @@ int main(int argc, char* argv[])
                             break;
 
                         case 4:
-                            std::cout << "Exam grade: \n" <<student_objs[get_obj_from_name(name)].get_exam_grade()<<"/100 points."<<std::endl;
+                            std::cout << "Exam grade: \n" << student_objs[get_obj_from_name(name)].get_exam_grade()
+                                      << "/100 points." << std::endl;
                             break;
                         default:
                             std::cout << "Invalid input." << std::endl;
@@ -337,15 +333,15 @@ int main(int argc, char* argv[])
             }
         }
             //If user chose 2 give the change menu
-        //TODO ######################## START OF CHANGE FUNCTION
-        else if(in == 2){
+            //TODO ######################## START OF CHANGE FUNCTION
+            //TODO ############ CHANGE PROJ GRADE TO IF 1 OR IF 2
+        else if (in == 2) {
 
-            do{
+            do {
                 std::cout << "Choose number of category:" << std::endl;
                 std::cout << "1.Labs\n2.Assignments\n3.Project\n4.Exam" << std::endl;
                 std::cin >> secondary;
-            }
-            while(secondary != "1" && secondary != "2" && secondary != "3" && secondary != "4");
+            } while (secondary != "1" && secondary != "2" && secondary != "3" && secondary != "4");
             //TODO DO WHILE AFTER
             int lab_index;
             float lab_val;
@@ -353,25 +349,25 @@ int main(int argc, char* argv[])
             switch (std::stoi(secondary)) {
                 case 1:
 
-                    do{
+                    do {
                         std::cout << "Enter lab number:" << std::endl;
                         std::cin >> tertiary;
-                    }
-                    while(tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4" && tertiary != "5" && tertiary != "6" && tertiary != "7" &&
-                          tertiary != "8" && tertiary != "9" && tertiary != "10" && tertiary != "11" && tertiary != "12");
+                    } while (tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4" &&
+                             tertiary != "5" && tertiary != "6" && tertiary != "7" &&
+                             tertiary != "8" && tertiary != "9" && tertiary != "10" && tertiary != "11" &&
+                             tertiary != "12");
 
                     lab_index = std::stoi(tertiary);
 
-                    std::cout<<"Enter the updated grade value: "<<std::endl;
+                    std::cout << "Enter the updated grade value: " << std::endl;
                     std::cin >> lab_val;
-                    if(std::cin.fail()||(lab_val<0 ||lab_val>20)){
+                    if (std::cin.fail() || (lab_val < 0 || lab_val > 20)) {
                         do {
                             std::cout << "Invalid input. Try again." << std::endl;
                             std::cin.clear();
-                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                             std::cin >> lab_val;
-                        }
-                        while(std::cin.fail()||(lab_val>20 ||lab_val<0));
+                        } while (std::cin.fail() || (lab_val > 20 || lab_val < 0));
                     }
 
                     student_objs[get_obj_from_name(name)].set_individual_lab(lab_index, lab_val);
@@ -379,25 +375,23 @@ int main(int argc, char* argv[])
                     break;
                 case 2:
 
-                    do{
+                    do {
                         std::cout << "Enter assignment number:" << std::endl;
                         std::cin >> tertiary;
-                    }
-                    while(tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4");
+                    } while (tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4");
                     int assignment_index;
                     assignment_index = std::stoi(tertiary);
                     float assignment_val;
-                    std::cout<<"Enter the updated grade value: "<<std::endl;
+                    std::cout << "Enter the updated grade value: " << std::endl;
                     std::cin >> assignment_val;
 
-                    if(std::cin.fail()||(assignment_val<0 ||assignment_val>50)){
+                    if (std::cin.fail() || (assignment_val < 0 || assignment_val > 50)) {
                         do {
                             std::cout << "Invalid input. Try again." << std::endl;
                             std::cin.clear();
-                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                             std::cin >> assignment_val;
-                        }
-                        while(std::cin.fail()||(assignment_val>20 ||assignment_val<0));
+                        } while (std::cin.fail() || (assignment_val > 50 || assignment_val < 0));
                     }
 
                     student_objs[get_obj_from_name(name)].set_individual_assignment(assignment_index, assignment_val);
@@ -407,25 +401,23 @@ int main(int argc, char* argv[])
 
                 case 3:
 
-                    do{
+                    do {
                         std::cout << "Enter project number:" << std::endl;
                         std::cin >> tertiary;
-                    }
-                    while(tertiary != "1" && tertiary != "2");
+                    } while (tertiary != "1" && tertiary != "2");
                     int project_index;
                     project_index = std::stoi(tertiary);
                     float project_val;
-                    std::cout<<"Enter the updated grade value: "<<std::endl;
+                    std::cout << "Enter the updated grade value: " << std::endl;
                     std::cin >> project_val;
 
-                    if(std::cin.fail()||(project_val<0 ||project_val>20)){
+                    if (std::cin.fail() || (project_val < 0 || project_val > 350)) {
                         do {
                             std::cout << "Invalid input. Try again." << std::endl;
                             std::cin.clear();
-                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                             std::cin >> project_val;
-                        }
-                        while(std::cin.fail()||(project_val>20 ||project_val<0));
+                        } while (std::cin.fail() || (project_val > 350 || project_val < 0));
                     }
 
                     student_objs[get_obj_from_name(name)].set_individual_project(project_index, project_val);
@@ -433,17 +425,16 @@ int main(int argc, char* argv[])
 
                 case 4:
                     float exam_val;
-                    std::cout<<"Enter the updated grade value: "<<std::endl;
-                    std::cin>> exam_val;
+                    std::cout << "Enter the updated grade value: " << std::endl;
+                    std::cin >> exam_val;
 
-                    if(std::cin.fail()||(exam_val<0 ||exam_val>100)){
+                    if (std::cin.fail() || (exam_val < 0 || exam_val > 100)) {
                         do {
                             std::cout << "Invalid input. Try again." << std::endl;
                             std::cin.clear();
-                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                             std::cin >> exam_val;
-                        }
-                        while(std::cin.fail()||(exam_val>20 ||exam_val<0));
+                        } while (std::cin.fail() || (exam_val > 100 || exam_val < 0));
                     }
 
 
@@ -457,30 +448,35 @@ int main(int argc, char* argv[])
             }
         }
         //TODO END OF CHANGE SECTION
+    }
+        file_stream.close();
+        delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
+        return 0;
 
-    file_stream.close();
-    delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
-    return 0;
 }
 
-int get_obj_from_name(std::string name) {
-    int index;
-    if (name == "kyle") {
-        index = 0;
-        return index;
+    int get_obj_from_name(std::string name) {
+        int index;
+        if (name == "kyle") {
+            index = 0;
+            return index;
+        }
+        if (name == "stephen") {
+            index = 1;
+            return index;
+        }
+        if (name == "zach") {
+            index = 2;
+            return index;
+        }
+        if (name == "alex") {
+            index = 3;
+            return index;
+        }
+        else
+            return -1;
     }
-    if (name == "stephen") {
-        index = 1;
-        return index;
-    }
-    if (name == "zach") {
-        index = 2;
-        return index;
-    }
-    if (name == "alex") {
-        index = 3;
-        return index;
-    }
-    else
-        return -1;
-}
+
+
+
+
