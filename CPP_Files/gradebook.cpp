@@ -254,8 +254,8 @@ void gradebook::display_individual(std::string category, std::string num)
 }
 void gradebook::display_category(std::string category)
 {
-    float cat_total;
-    float possible;
+    float cat_total = 0;
+    float possible = 0;
     int cat = std::stoi(category);
     switch(cat){
         case 1:
@@ -287,6 +287,8 @@ void gradebook::display_category(std::string category)
 }
 void gradebook::display_course(int input)
 {
+    float cat_total = 0;
+    float possible = 0;
     switch(input) {
         case 1:
             std::cout<<"Lab Grades:"<<std::endl;
@@ -306,8 +308,7 @@ void gradebook::display_course(int input)
             std::cout << "Letter grade: "<<get_letter_grade()<<std::endl;
             break;
         case 2:
-            float cat_total;
-            float possible;
+
             for(int i=0;i<lab_grades.size();i++){
                 cat_total += lab_grades[i];
                 possible+=20;
