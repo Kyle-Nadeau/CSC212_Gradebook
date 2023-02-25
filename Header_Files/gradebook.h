@@ -78,7 +78,7 @@ public:
 
     void display_individual(std::string category, std::string num);
     void display_category(std::string);
-    void display_course();
+    void display_course(int input);
     void drop_lowest_labs();
 
 };
