@@ -7,7 +7,8 @@
 #include <limits>
 //Students.cpp is Gradebook.cpp
 
-int get_obj_from_name(std::string name);
+
+int get_obj_from_name(std::string name, int num_of_students, gradebook *student_objs);
 
 int main(int argc, char* argv[]) {
     std::string file_line;
@@ -186,7 +187,7 @@ int main(int argc, char* argv[]) {
             break;
         }
         //Get user first input
-        int index1 = get_obj_from_name(name);
+        int index1 = get_obj_from_name(name, num_of_students, student_objs);
         //Failsafe for menu incase user inputs an invalid name
         while (index1 == -1) {
             std::cout << "Invalid student name." << std::endl;
@@ -196,7 +197,7 @@ int main(int argc, char* argv[]) {
                 std::cout << student_objs[i].get_name() << std::endl;
             }
             std::cin >> name;
-            index1 = get_obj_from_name(name);
+            index1 = get_obj_from_name(name, num_of_students, student_objs);
         }
         //Next menu; view or change users grades
         std::cout << "Type 1 to view or 2 to change grades." << std::endl;
@@ -247,14 +248,14 @@ int main(int argc, char* argv[]) {
                                      tertiary != "5" && tertiary != "6" && tertiary != "7" &&
                                      tertiary != "8" && tertiary != "9" && tertiary != "10" && tertiary != "11" &&
                                      tertiary != "12");
-                            student_objs[get_obj_from_name(name)].display_individual(secondary, tertiary); //Broken line
+                            student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_individual(secondary, tertiary); //Broken line
                             break;
                         case 2:
                             do {
                                 std::cout << "Enter assignment number:" << std::endl;
                                 std::cin >> tertiary;
                             } while (tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4");
-                            student_objs[get_obj_from_name(name)].display_individual(secondary, tertiary);
+                            student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_individual(secondary, tertiary);
                             break;
 
                         case 3:
@@ -262,11 +263,11 @@ int main(int argc, char* argv[]) {
                                 std::cout << "Enter project number:" << std::endl;
                                 std::cin >> tertiary;
                             } while (tertiary != "1" && tertiary != "2");
-                            student_objs[get_obj_from_name(name)].display_individual(secondary, tertiary);
+                            student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_individual(secondary, tertiary);
                             break;
 
                         case 4:
-                            std::cout << "Exam grade: \n" << student_objs[get_obj_from_name(name)].get_exam_grade()
+                            std::cout << "Exam grade: \n" << student_objs[get_obj_from_name(name, num_of_students, student_objs)].get_exam_grade()
                                       << "/100 points." << std::endl;
                             break;
                         default:
@@ -370,7 +371,7 @@ int main(int argc, char* argv[]) {
                         } while (std::cin.fail() || (lab_val > 20 || lab_val < 0));
                     }
 
-                    student_objs[get_obj_from_name(name)].set_individual_lab(lab_index, lab_val);
+                    student_objs[get_obj_from_name(name, num_of_students, student_objs)].set_individual_lab(lab_index, lab_val);
 
                     break;
                 case 2:
@@ -394,7 +395,7 @@ int main(int argc, char* argv[]) {
                         } while (std::cin.fail() || (assignment_val > 50 || assignment_val < 0));
                     }
 
-                    student_objs[get_obj_from_name(name)].set_individual_assignment(assignment_index, assignment_val);
+                    student_objs[get_obj_from_name(name, num_of_students, student_objs)].set_individual_assignment(assignment_index, assignment_val);
 
 
                     break;
@@ -420,7 +421,7 @@ int main(int argc, char* argv[]) {
                         } while (std::cin.fail() || (project_val > 350 || project_val < 0));
                     }
 
-                    student_objs[get_obj_from_name(name)].set_individual_project(project_index, project_val);
+                    student_objs[get_obj_from_name(name, num_of_students, student_objs)].set_individual_project(project_index, project_val);
                     break;
 
                 case 4:
@@ -438,7 +439,7 @@ int main(int argc, char* argv[]) {
                     }
 
 
-                    student_objs[get_obj_from_name(name)].set_exam_grade(exam_val);
+                    student_objs[get_obj_from_name(name, num_of_students, student_objs)].set_exam_grade(exam_val);
                     name.clear();
                     break;
                 default:
@@ -449,34 +450,18 @@ int main(int argc, char* argv[]) {
         }
         //TODO END OF CHANGE SECTION
     }
-        file_stream.close();
-        delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
-        return 0;
+    file_stream.close();
+    delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
+    return 0;
 
 }
 
-    int get_obj_from_name(std::string name) {
-        int index;
-        if (name == "kyle") {
-            index = 0;
-            return index;
+int get_obj_from_name(std::string name, int num_of_students, gradebook *student_objs) {
+    int index;
+    for(int i = 0;i<num_of_students-1;i++){
+        if(name==student_objs[i].get_name()){
+            return i;
         }
-        if (name == "stephen") {
-            index = 1;
-            return index;
-        }
-        if (name == "zach") {
-            index = 2;
-            return index;
-        }
-        if (name == "alex") {
-            index = 3;
-            return index;
-        }
-        else
-            return -1;
     }
-
-
-
-
+    return -1;
+}
