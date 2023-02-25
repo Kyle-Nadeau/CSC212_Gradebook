@@ -166,51 +166,51 @@ std::string gradebook::get_letter_grade()
 
     if (percentage_grade >= 94)
     {
-        letter_grade = 'A';
+        letter_grade = "A";
     }
     else if (percentage_grade < 94 && percentage_grade >= 90)
     {
-        letter_grade = 'A-';
+        letter_grade = "A-";
     }
     else if (percentage_grade < 90 && percentage_grade >= 87)
     {
-        letter_grade = 'B+';
+        letter_grade = "B+";
     }
     else if (percentage_grade < 87 && percentage_grade >= 83)
     {
-        letter_grade = 'B';
+        letter_grade = "B";
     }
     else if (percentage_grade < 83 && percentage_grade >= 80)
     {
-        letter_grade = 'B-';
+        letter_grade = "B-";
     }
     else if (percentage_grade < 80 && percentage_grade >= 77)
     {
-        letter_grade = 'C+';
+        letter_grade = "C+";
     }
     else if (percentage_grade < 77 && percentage_grade >= 73)
     {
-        letter_grade = 'C';
+        letter_grade = "C";
     }
     else if (percentage_grade < 73 && percentage_grade >= 70)
     {
-        letter_grade = 'C-';
+        letter_grade = "C-";
     }
     else if (percentage_grade < 70 && percentage_grade >= 67)
     {
-        letter_grade = 'D+';
+        letter_grade = "D+";
     }
     else if (percentage_grade < 67 && percentage_grade >= 63)
     {
-        letter_grade = 'D';
+        letter_grade = "D";
     }
     else if (percentage_grade < 63 && percentage_grade >= 60)
     {
-        letter_grade = 'D-';
+        letter_grade = "D-";
     }
     else
     {
-        letter_grade = 'F';
+        letter_grade = "F";
     }
     return letter_grade;
 }
