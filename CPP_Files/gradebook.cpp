@@ -160,8 +160,9 @@ float gradebook::get_total_grade()
 }
 std::string gradebook::get_letter_grade()
 {
-    int percentage_grade;
-    percentage_grade = total_grade / 100;
+    int percentage_grade = this->total_grade/10.0;
+
+
 
     if (percentage_grade >= 94)
     {
@@ -284,7 +285,54 @@ void gradebook::display_category(std::string category)
 
 
 }
-void gradebook::display_course()
+void gradebook::display_course(int input)
 {
+    switch(input) {
+        case 1:
+            std::cout<<"Lab Grades:"<<std::endl;
+            for(int i = 0; i<lab_grades.size();i++){
+                std::cout<<lab_names[i]<<": "<<lab_grades[i]<<"/20 points."<<std::endl;
+            }
+            std::cout<<"Assignment Grades:"<<std::endl;
+            for(int i = 0; i<assignment_grades.size();i++){
+                std::cout<<assignment_names[i]<<": "<<assignment_grades[i]<<"/50 points."<<std::endl;
+            }
+            std::cout<<"Project Grades:"<<std::endl;
+            for(int i = 0; i<project_grades.size();i++){
+                std::cout<<project_names[i]<<": "<<project_grades[i]<<" points."<<std::endl;
+            }
+            std::cout <<"Exam Grade: "<<exam_grade<<"/100 points."<<std::endl;
+            std::cout << "Total points: "<<get_total_grade()<<"/1000 points."<<std::endl;
+            std::cout << "Letter grade: "<<get_letter_grade()<<std::endl;
+            break;
+        case 2:
+            float cat_total;
+            float possible;
+            for(int i=0;i<lab_grades.size();i++){
+                cat_total += lab_grades[i];
+                possible+=20;
+            }
+            std::cout<<"Lab category total:\n"<<cat_total<<"/"<<possible<<"."<<std::endl;
+            possible = 0;
+            cat_total = 0;
+            for(int i=0;i<assignment_grades.size();i++){
+                cat_total += assignment_grades[i];
+                possible+=50;
+            }
+            std::cout<<"Assignment total:\n"<<cat_total<<"/"<<possible<<"."<<std::endl;
+            cat_total = 0;
+            for(int i=0;i<project_grades.size();i++){
+                cat_total += project_grades[i];
+            }
+            std::cout<<"Projects total:\n"<<cat_total<<"/500 points."<<std::endl;
+            std::cout <<"Exam Grade: "<<exam_grade<<"/100 points."<<std::endl;
+            std::cout << "Total points: "<<get_total_grade()<<"/1000 points."<<std::endl;
+            std::cout << "Letter grade: "<<get_letter_grade()<<std::endl;
+            break;
+        case 3:
+            std::cout << "Total points: "<<get_total_grade()<<"/1000 points."<<std::endl;
+            std::cout << "Letter grade: "<<get_letter_grade()<<std::endl;
 
+
+    }
 }
