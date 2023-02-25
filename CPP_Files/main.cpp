@@ -283,26 +283,13 @@ int main(int argc, char* argv[]) {
                         std::cin >> secondary;
                     } while (secondary != "1" && secondary != "2" && secondary != "3" && secondary != "4");
 
-                    switch (std::stoi(secondary)) {
-                        case 1:
-                            //TODO display lab category
-                            break;
-                        case 2:
-                            //TODO display assignment category
-                            break;
-
-                        case 3:
-                            //TODO display Project category
-                            break;
-
-                        case 4:
-                            //TODO display exam category (?? there's only one lol)
-                            break;
-
-                        default:
-                            std::cout << "Invalid input." << std::endl;
+                    if(secondary!="4") {
+                        student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_category(secondary);
                     }
-                    break;
+                    else{
+                        std::cout << "Exam grade: \n" << student_objs[get_obj_from_name(name, num_of_students, student_objs)].get_exam_grade()
+                                  << "/100 points." << std::endl;
+                    }
 
                 case 3:
                     std::cout << "Choose number of type:" << std::endl;
