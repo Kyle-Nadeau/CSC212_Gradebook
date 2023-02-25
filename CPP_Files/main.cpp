@@ -7,7 +7,8 @@
 #include <limits>
 //Students.cpp is Gradebook.cpp
 
-int get_obj_from_name(std::string name);
+
+int get_obj_from_name(std::string name, int num_of_students, gradebook *student_objs);
 
 int main(int argc, char* argv[]) {
     std::string file_line;
@@ -186,7 +187,7 @@ int main(int argc, char* argv[]) {
             break;
         }
         //Get user first input
-        int index1 = get_obj_from_name(name);
+        int index1 = get_obj_from_name(name, num_of_students, student_objs);
         //Failsafe for menu incase user inputs an invalid name
         while (index1 == -1) {
             std::cout << "Invalid student name." << std::endl;
@@ -196,7 +197,7 @@ int main(int argc, char* argv[]) {
                 std::cout << student_objs[i].get_name() << std::endl;
             }
             std::cin >> name;
-            index1 = get_obj_from_name(name);
+            index1 = get_obj_from_name(name, num_of_students, student_objs);
         }
         //Next menu; view or change users grades
         std::cout << "Type 1 to view or 2 to change grades." << std::endl;
@@ -247,14 +248,14 @@ int main(int argc, char* argv[]) {
                                      tertiary != "5" && tertiary != "6" && tertiary != "7" &&
                                      tertiary != "8" && tertiary != "9" && tertiary != "10" && tertiary != "11" &&
                                      tertiary != "12");
-                            student_objs[get_obj_from_name(name)].display_individual(secondary, tertiary); //Broken line
+                            student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_individual(secondary, tertiary); //Broken line
                             break;
                         case 2:
                             do {
                                 std::cout << "Enter assignment number:" << std::endl;
                                 std::cin >> tertiary;
                             } while (tertiary != "1" && tertiary != "2" && tertiary != "3" && tertiary != "4");
-                            student_objs[get_obj_from_name(name)].display_individual(secondary, tertiary);
+                            student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_individual(secondary, tertiary);
                             break;
 
                         case 3:
@@ -262,13 +263,12 @@ int main(int argc, char* argv[]) {
                                 std::cout << "Enter project number:" << std::endl;
                                 std::cin >> tertiary;
                             } while (tertiary != "1" && tertiary != "2");
-                            student_objs[get_obj_from_name(name)].display_individual(secondary, tertiary);
+                            student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_individual(secondary, tertiary);
                             break;
 
                         case 4:
-                            std::cout << "Exam grade: \n" << student_objs[get_obj_from_name(name)].get_exam_grade()
+                            std::cout << "Exam grade: \n" << student_objs[get_obj_from_name(name, num_of_students, student_objs)].get_exam_grade()
                                       << "/100 points." << std::endl;
-                            std::cout<<"\n";
                             break;
                         default:
                             std::cout << "Invalid input." << std::endl;
@@ -283,26 +283,13 @@ int main(int argc, char* argv[]) {
                         std::cin >> secondary;
                     } while (secondary != "1" && secondary != "2" && secondary != "3" && secondary != "4");
 
-                    switch (std::stoi(secondary)) {
-                        case 1:
-                            //TODO display lab category
-                            break;
-                        case 2:
-                            //TODO display assignment category
-                            break;
-
-                        case 3:
-                            //TODO display Project category
-                            break;
-
-                        case 4:
-                            //TODO display exam category (?? there's only one lol)
-                            break;
-
-                        default:
-                            std::cout << "Invalid input." << std::endl;
+                    if(secondary!="4") {
+                        student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_category(secondary);
                     }
-                    break;
+                    else{
+                        std::cout << "Exam grade: \n" << student_objs[get_obj_from_name(name, num_of_students, student_objs)].get_exam_grade()
+                                  << "/100 points." << std::endl;
+                    }
 
                 case 3:
                     std::cout << "Choose number of type:" << std::endl;
@@ -313,14 +300,14 @@ int main(int argc, char* argv[]) {
 
                     switch (std::stoi(secondary)) {
                         case 1:
-                            //TODO display all individual grades and course total
+                            student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_course(std::stoi(secondary));
                             break;
                         case 2:
-                            //TODO display all category totals and course total
+                            student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_course(std::stoi(secondary));
                             break;
 
                         case 3:
-                            //TODO display course total
+                            student_objs[get_obj_from_name(name, num_of_students, student_objs)].display_course(std::stoi(secondary));
                             break;
 
                         default:
@@ -371,7 +358,7 @@ int main(int argc, char* argv[]) {
                         } while (std::cin.fail() || (lab_val > 20 || lab_val < 0));
                     }
 
-                    student_objs[get_obj_from_name(name)].set_individual_lab(lab_index, lab_val);
+                    student_objs[get_obj_from_name(name, num_of_students, student_objs)].set_individual_lab(lab_index, lab_val);
 
                     break;
                 case 2:
@@ -395,7 +382,7 @@ int main(int argc, char* argv[]) {
                         } while (std::cin.fail() || (assignment_val > 50 || assignment_val < 0));
                     }
 
-                    student_objs[get_obj_from_name(name)].set_individual_assignment(assignment_index, assignment_val);
+                    student_objs[get_obj_from_name(name, num_of_students, student_objs)].set_individual_assignment(assignment_index, assignment_val);
 
 
                     break;
@@ -421,7 +408,7 @@ int main(int argc, char* argv[]) {
                         } while (std::cin.fail() || (project_val > 350 || project_val < 0));
                     }
 
-                    student_objs[get_obj_from_name(name)].set_individual_project(project_index, project_val);
+                    student_objs[get_obj_from_name(name, num_of_students, student_objs)].set_individual_project(project_index, project_val);
                     break;
 
                 case 4:
@@ -439,7 +426,7 @@ int main(int argc, char* argv[]) {
                     }
 
 
-                    student_objs[get_obj_from_name(name)].set_exam_grade(exam_val);
+                    student_objs[get_obj_from_name(name, num_of_students, student_objs)].set_exam_grade(exam_val);
                     name.clear();
                     break;
                 default:
@@ -448,86 +435,20 @@ int main(int argc, char* argv[]) {
 
             }
         }
-
+        //TODO END OF CHANGE SECTION
     }
-        file_stream.close();
-
-        //TODO kyle start fileoutput
-        std::ofstream ofs;
-        ofs.open(file_name, std::ofstream::out | std::ofstream::trunc);
-        ofs.close();
-
-        std::ofstream outfile;
-        outfile.open(file_name);
-        outfile<<num_of_students<<std::endl;
-        for(int i = 0; i < num_of_students; i++){
-            outfile<<student_objs[i].get_name()<<std::endl;
-            std::vector<std::string> temp =student_objs[i].get_lab_names();
-            for(int j = 0; j < temp.size(); j++) {
-
-                outfile << temp[j] << " ";
-            }
-            outfile<< std::endl;
-            std::vector<float> temp_f = student_objs[i].get_lab_grades();
-            for(int j = 0; j < temp_f.size(); j++) {
-
-                outfile << temp_f[j] << " ";
-            }
-            outfile<< std::endl;
-            std::vector<std::string> temp1 = student_objs[i].get_assignment_names();
-            for(int j = 0; j < temp1.size(); j++) {
-
-                outfile << temp1[j] << " ";
-            }
-            outfile<< std::endl;
-            std::vector<float> temp1_f = student_objs[i].get_assignment_grades();
-            for(int j = 0; j < temp1_f.size(); j++) {
-
-                outfile << temp1_f[j] << " ";
-            }
-            outfile<< std::endl;
-            std::vector<std::string> temp3 = student_objs[i].get_project_name();
-            for(int j = 0; j < temp3.size(); j++) {
-
-                outfile << temp3[j] << " ";
-            }
-            outfile<< std::endl;
-            std::vector<float> temp3_f = student_objs[i].get_project_grades();
-            for(int j = 0; j < temp3_f.size(); j++) {
-
-                outfile << temp3_f[j] << " ";
-            }
-            outfile<< std::endl;
-
-            outfile<<student_objs[i].get_exam_name()<<std::endl;
-            outfile<<student_objs[i].get_exam_grade()<<std::endl;
-            outfile<< std::endl;
-        }
-        outfile.close();
-        delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
-        return 0;
+    file_stream.close();
+    delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
+    return 0;
 
 }
 
-    int get_obj_from_name(std::string name) {
-        int index;
-        if (name == "kyle") {
-            index = 0;
-            return index;
-        }
-        if (name == "stephen") {
-            index = 1;
-            return index;
-        }
-        if (name == "zach") {
-            index = 2;
-            return index;
-        }
-        if (name == "alex") {
-            index = 3;
-            return index;
-        }
-        else
-            return -1;
-    }
+int get_obj_from_name(std::string name, int num_of_students, gradebook *student_objs) {
 
+    for(int i = 0;i<num_of_students;i++){
+        if(name==student_objs[i].get_name()){
+            return i;
+        }
+    }
+    return -1;
+}
