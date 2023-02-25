@@ -438,6 +438,58 @@ int main(int argc, char* argv[]) {
         //TODO END OF CHANGE SECTION
     }
     file_stream.close();
+    //TODO kyle start fileoutput
+        std::ofstream ofs;
+        ofs.open(file_name, std::ofstream::out | std::ofstream::trunc);
+        ofs.close();
+
+        std::ofstream outfile;
+        outfile.open(file_name);
+        outfile<<num_of_students<<std::endl;
+        for(int i = 0; i < num_of_students; i++){
+            outfile<<student_objs[i].get_name()<<std::endl;
+            std::vector<std::string> temp =student_objs[i].get_lab_names();
+            for(int j = 0; j < temp.size(); j++) {
+
+                outfile << temp[j] << " ";
+            }
+            outfile<< std::endl;
+            std::vector<float> temp_f = student_objs[i].get_lab_grades();
+            for(int j = 0; j < temp_f.size(); j++) {
+
+                outfile << temp_f[j] << " ";
+            }
+            outfile<< std::endl;
+            std::vector<std::string> temp1 = student_objs[i].get_assignment_names();
+            for(int j = 0; j < temp1.size(); j++) {
+
+                outfile << temp1[j] << " ";
+            }
+            outfile<< std::endl;
+            std::vector<float> temp1_f = student_objs[i].get_assignment_grades();
+            for(int j = 0; j < temp1_f.size(); j++) {
+
+                outfile << temp1_f[j] << " ";
+            }
+            outfile<< std::endl;
+            std::vector<std::string> temp3 = student_objs[i].get_project_name();
+            for(int j = 0; j < temp3.size(); j++) {
+
+                outfile << temp3[j] << " ";
+            }
+            outfile<< std::endl;
+            std::vector<float> temp3_f = student_objs[i].get_project_grades();
+            for(int j = 0; j < temp3_f.size(); j++) {
+
+                outfile << temp3_f[j] << " ";
+            }
+            outfile<< std::endl;
+
+            outfile<<student_objs[i].get_exam_name()<<std::endl;
+            outfile<<student_objs[i].get_exam_grade()<<std::endl;
+            outfile<< std::endl;
+        }
+        outfile.close();
     delete[] student_objs; //The dynamic objects need to be deleted before the program ends.
     return 0;
 
