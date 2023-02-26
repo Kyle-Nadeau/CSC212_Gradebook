@@ -1,0 +1,11 @@
+1
+real_person_bob
+c++_crash_course function_runtime dynamic_arrays linked_lists recursion backtracking priority_queues binary_search_trees balancing_act hash_tables sets_&_tables graphs 
+15 20 20 15 20 20 15 20 20 15 20 20 
+practical_1 conceptualization_1 practical_2 conceptualization_2 
+50 40 50 40 
+gradebook_project dsa_project 
+150 350 
+final_exam
+90
+
