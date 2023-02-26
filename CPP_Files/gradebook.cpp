@@ -142,7 +142,8 @@ float gradebook::get_exam_grade()
 }
 float gradebook::get_total_grade()
 {
-    total_grade = 0;//This is to reset the total grade back to zero between calls.
+    drop_lowest_labs();
+    total_grade = 0.00;//This is to reset the total grade back to zero between calls.
     for (int i = 0; i < lab_grades_after_drop.size(); i++)
     {
         total_grade += lab_grades_after_drop[i];
@@ -227,7 +228,7 @@ void gradebook::drop_lowest_labs()
 
     sort(lab_grades_after_drop.begin(), lab_grades_after_drop.end());
     //Removing the bottom two grades.
-    lab_grades.erase(lab_grades_after_drop.begin(), lab_grades_after_drop.begin() + 2);
+    lab_grades_after_drop.erase(lab_grades_after_drop.begin(), lab_grades_after_drop.begin() + 2);
 }
 //The display functions
 void gradebook::display_individual(std::string category, std::string num)
@@ -254,8 +255,8 @@ void gradebook::display_individual(std::string category, std::string num)
 }
 void gradebook::display_category(std::string category)
 {
-    float cat_total = 0;
-    float possible = 0;
+    float cat_total;
+    float possible;
     int cat = std::stoi(category);
     switch(cat){
         case 1:
