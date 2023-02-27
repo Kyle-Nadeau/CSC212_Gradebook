@@ -11,6 +11,7 @@ We were able to come up with what we wanted our main gradebook class to be, its 
 ### Runtime Instructions
 ##### Formatting
 First you must ensure that your input file is in the correct format of:<br />
+
 &ensp;  -Number of students in file<br />
 &ensp;  -First student's name<br />
 &ensp;  -Names of labs, any labs with multiple words in the title will have an underscore between them and the lab names are separated by spaces<br />
