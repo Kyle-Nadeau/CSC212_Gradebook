@@ -320,9 +320,7 @@ int main(int argc, char* argv[]) {
                     std::cout << "Invalid input." << std::endl;
             }
         }
-            //If user chose 2 give the change menu
-            //TODO ######################## START OF CHANGE FUNCTION
-            //TODO ############ CHANGE PROJ GRADE TO IF 1 OR IF 2
+            
         else if (in == 2) {
 
             do {
@@ -330,7 +328,7 @@ int main(int argc, char* argv[]) {
                 std::cout << "1.Labs\n2.Assignments\n3.Project\n4.Exam" << std::endl;
                 std::cin >> secondary;
             } while (secondary != "1" && secondary != "2" && secondary != "3" && secondary != "4");
-            //TODO DO WHILE AFTER
+            //Get user input for number and specify whether it is acceptable values or not
             int lab_index;
             float lab_val;
 
@@ -435,18 +433,18 @@ int main(int argc, char* argv[]) {
 
             }
         }
-        //TODO END OF CHANGE SECTION
+        //
     }
     file_stream.close();
-    //TODO kyle start fileoutput
+    //FILE OUTPUT
     std::ofstream ofs;
-    ofs.open(file_name, std::ofstream::out | std::ofstream::trunc);
+    ofs.open(file_name, std::ofstream::out | std::ofstream::trunc); //this clears the whole original files contents
     ofs.close();
 
     std::ofstream outfile;
     outfile.open(file_name);
     outfile<<num_of_students<<std::endl;
-    for(int i = 0; i < num_of_students; i++){
+    for(int i = 0; i < num_of_students; i++){ //for each student, append all data from all categories back into the file
         outfile<<student_objs[i].get_name()<<std::endl;
         std::vector<std::string> temp =student_objs[i].get_lab_names();
         for(int j = 0; j < temp.size(); j++) {
