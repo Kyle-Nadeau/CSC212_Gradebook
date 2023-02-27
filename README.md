@@ -7,7 +7,8 @@ For this project out first meeting was to discuss an overall structure we wanted
 We were able to come up with what we wanted our main gradebook class to be, its private and public data members & methods, and how we wanted our data to be input to the program. We came to the agreement each instantiation of the class as an object should represent a singular student; holding important factors such as their name, grades(as float vectors) for labs/assignments/projects and the exam, and string vectors for the names of each lab/assignment/project. We also figured for our input file we wanted the first line to be a number taken into the program as a singular integer, representing the number of students whose class profiles will be uploaded. This allows us to input multiple students information at a time only using a singular file- by modifying the file contents and number of students, the program will react accordingly. 
 
 ### Compilation Instructions
-
+For integrated ides, make sure all files are within the same working directory and then take input from the text file name. <br>
+For g++ compilation,  use __g++ main.cpp -o main && ./main <datafile name>__
 ### Runtime Instructions
 ##### Input File Formatting
 First you must ensure that your input file is in the correct format of:<br />
