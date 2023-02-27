@@ -56,27 +56,24 @@ When you are finished using the program and you are on the first menu asking for
 ### Screenshots
 ![select_student](https://user-images.githubusercontent.com/98467752/221691361-a8fbb614-b233-4af7-b7c1-d16407e5bfc7.png)<br />
 This is what the select student name menu looks like. Whichever student you want to select requires a case sensitive input.
-
+<br />
 ![view_or_change](https://user-images.githubusercontent.com/98467752/221693574-3229a9dc-eee6-44a1-91c2-3a358987b249.png)<br />
 This is the following menu where you are asked to select if you want to view or change grades with an input of 1 or 2.
-
+<br />
 ![view_choose](https://user-images.githubusercontent.com/98467752/221693770-dff0d4ed-aa79-49dd-bc52-d23efd2951b1.png)<br />
 If you select choose you will be presented with this menu for your choice of viewing one grade or multiple grades.<br />
-
+<br />
 ![view_choose_individual](https://user-images.githubusercontent.com/98467752/221693952-4f18fd0c-a6ed-46f4-ac30-08ec5dc927e7.png)<br />
 If you choose individual this is the menu presented to you to select which category of grades you would like to view from.<br />
-
+<br />
 ![view_choose_individual_assignment](https://user-images.githubusercontent.com/98467752/221694057-ff30cae5-d47b-417a-96b9-408cfe6351ec.png)<br />
 Then you will see this menu to enter the number in the chosen category.<br />
-
-
+<br />
 ![view_choose_category_project](https://user-images.githubusercontent.com/98467752/221694162-ec93610d-8598-4a93-b5b0-6e5ac2bd95c9.png)<br />
 This example show if you selected category and then project to show how the overall grade of a category is presented.<br />
-
-
+<br />
 ![view_choose_course](https://user-images.githubusercontent.com/98467752/221694277-c9357e22-9d90-40d0-8ba9-9786f476213f.png)<br />
 This is an example of viewing the course grades with option 2 only category totals and course overall.<br />
-
-
+<br />
 ![change_lab](https://user-images.githubusercontent.com/98467752/221694440-7082e3ee-6e51-42b8-8a5f-a4bb4dcec663.png)<br />
 This is an example of the series of inputs to change a lab grade.<br />
