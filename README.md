@@ -11,17 +11,17 @@ We were able to come up with what we wanted our main gradebook class to be, its 
 ### Runtime Instructions
 ##### Formatting
 First you must ensure that your input file is in the correct format of:<br />
-  -Number of students in file<br />
-  -First student's name<br />
-  -Names of labs, any labs with multiple words in the title will have an underscore between them and the lab names are separated by spaces<br />
-  -Grades for labs out of 20 points separated by spaces<br />
-  -Names of assignments, same formatting as labs<br />
-  -Grades of assignments, out of 50 points separated by spaces<br />
-  -Names of projects, same formatting as labs and assignments<br />
-  -Grades of projects separated by a space the first one out of 150 points and the second one out of 350 points<br />
-  -Final_exam<br />
-  -Final exam grade out of 100 points<br />
-  -Empty line to signify end of student then repeat the student name to empty line formatting for each following student<br />
+&ensp;  -Number of students in file<br />
+&ensp;  -First student's name<br />
+&ensp;  -Names of labs, any labs with multiple words in the title will have an underscore between them and the lab names are separated by spaces<br />
+&ensp;  -Grades for labs out of 20 points separated by spaces<br />
+&ensp;  -Names of assignments, same formatting as labs<br />
+&ensp;  -Grades of assignments, out of 50 points separated by spaces<br />
+&ensp;  -Names of projects, same formatting as labs and assignments<br />
+&ensp;  -Grades of projects separated by a space the first one out of 150 points and the second one out of 350 points<br />
+&ensp;  -Final_exam<br />
+&ensp;  -Final exam grade out of 100 points<br />
+&ensp;  -Empty line to signify end of student then repeat the student name to empty line formatting for each following student<br />
 
 ##### Select Student
 After the input is taken in and the file runs you will be asked to type in a student name(case sensitive) to view or change their grades or an exit option to exit the program.
