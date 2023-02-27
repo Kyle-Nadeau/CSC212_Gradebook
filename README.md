@@ -52,3 +52,7 @@ Next you will be asked to input the updated grade value and then that updated gr
 After you have viewed or changed a grade you will be looped back to the first menu asking for a student name and you can continue to use the program with the steps above.
 
 When you are finished using the program and you are on the first menu asking for a student name, you can type Exit(case sensitive) to exit the program.<br />
+
+### Screenshots
+![select_student](https://user-images.githubusercontent.com/98467752/221691361-a8fbb614-b233-4af7-b7c1-d16407e5bfc7.png)
+This is what the select student name menu looks like. Whichever student you want to select requires a case sensitive input.
