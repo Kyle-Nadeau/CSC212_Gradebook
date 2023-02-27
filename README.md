@@ -55,10 +55,10 @@ When you are finished using the program and you are on the first menu asking for
 
 ### Screenshots
 ![select_student](https://user-images.githubusercontent.com/98467752/221691361-a8fbb614-b233-4af7-b7c1-d16407e5bfc7.png)<br />
-This is what the select student name menu looks like. Whichever student you want to select requires a case sensitive input.
+This is what the select student name menu looks like. Whichever student you want to select requires a case sensitive input.<br />
 <br />
 ![view_or_change](https://user-images.githubusercontent.com/98467752/221693574-3229a9dc-eee6-44a1-91c2-3a358987b249.png)<br />
-This is the following menu where you are asked to select if you want to view or change grades with an input of 1 or 2.
+This is the following menu where you are asked to select if you want to view or change grades with an input of 1 or 2.<br />
 <br />
 ![view_choose](https://user-images.githubusercontent.com/98467752/221693770-dff0d4ed-aa79-49dd-bc52-d23efd2951b1.png)<br />
 If you select choose you will be presented with this menu for your choice of viewing one grade or multiple grades.<br />
