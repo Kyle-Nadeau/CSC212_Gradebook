@@ -10,40 +10,39 @@ We were able to come up with what we wanted our main gradebook class to be, its 
 
 ### Runtime Instructions
 
-First you must ensure that your input file is in the correct format of:
-  Number of students in file
-  First student's name
-  Names of labs, any labs with multiple words in the title will have an underscore between them and the lab names are separated by spaces
-  Grades for labs out of 20 points separated by spaces
-  Names of assignments, same formatting as labs
-  Grades of assignments, out of 50 points separated by spaces
-  Names of projects, same formatting as labs and assignments
-  Grades of projects separated by a space the first one out of 150 points and the second one out of 350 points
-  Final_exam
-  Final exam grade out of 100 points
-  Empty line to signify end of student #1 grades then repeat the student name to empty line formatting for each following student
+First you must ensure that your input file is in the correct format of:<br />
+  Number of students in file<br />
+  First student's name<br />
+  Names of labs, any labs with multiple words in the title will have an underscore between them and the lab names are separated by spaces<br />
+  Grades for labs out of 20 points separated by spaces<br />
+  Names of assignments, same formatting as labs<br />
+  Grades of assignments, out of 50 points separated by spaces<br />
+  Names of projects, same formatting as labs and assignments<br />
+  Grades of projects separated by a space the first one out of 150 points and the second one out of 350 points<br />
+  Final_exam<br />
+  Final exam grade out of 100 points<br />
+  Empty line to signify end of student #1 grades then repeat the student name to empty line formatting for each following student<br />
 
 After the input is taken in and the file runs you will be asked to type in a student name(case sensitive) to view or change their grades or an exit option to exit the program
 
 Once a student is chosen the next step in the menu will ask you to type 1 to view the chosen student's grades or 2 to change them
 
 
-If you chose to view a grade or grades you will then be asked to enter a number for how you would like to view them:
-  1. Individual
-      Here you will be asked to input a number for the category you want, then you will be asked to enter the number of the lab, assignment, or project that you would like to view
-      unless you choose exam in that case you will be immediately shown the exam grade
-  2. Category
-      Here you will be asked to input a number for the category you want to view after which you will be shown the total grade earned in that category out of the total possible number of points
-  3. Course
-      Here you will be shown all of the grades for the course for the student along with their letter grade that has been calculated for you
+If you chose to view a grade or grades you will then be asked to enter a number for how you would like to view them:<br />
+  1. Individual<br />
+      Here you will be asked to input a number for the category you want, then you will be asked to enter the number of the lab, assignment, or project that you would like to view unless you choose exam in that case you will be immediately shown the exam grade<br />
+  2. Category<br />
+      Here you will be asked to input a number for the category you want to view after which you will be shown the total grade earned in that category out of the total possible number of points<br />
+  3. Course<br />
+      Here you will be shown all of the grades for the course for the student along with their letter grade that has been calculated for you<br />
 
 
 
-If you chose to change a grade you will then be asked to choose with category of their grades you would like to change
-To choose a category type in the corresponding number: 1 for labs, 2 for assignments, 3 for projects, 4 for exams
+If you chose to change a grade you will then be asked to choose with category of their grades you would like to change<br />
+To choose a category type in the corresponding number: 1 for labs, 2 for assignments, 3 for projects, 4 for exams<br />
 
-You will then be asked to enter the number of lab, assignment, or projects to change, if you chose exam this step is skipped because there is only one exam
+You will then be asked to enter the number of lab, assignment, or projects to change, if you chose exam this step is skipped because there is only one exam<br />
 
-Next you will be asked to input the updated grade value
+Next you will be asked to input the updated grade value<br />
 
-When you are finished using the program and you are on the first menu asking for a student name, you can type Exit(case sensitive) to exit the program
+When you are finished using the program and you are on the first menu asking for a student name, you can type Exit(case sensitive) to exit the program<br />
