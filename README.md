@@ -8,7 +8,7 @@ We were able to come up with what we wanted our main gradebook class to be, its 
 
 ### Compilation Instructions
 For integrated ides, make sure all files are within the same working directory and then take input from the text file name. <br>
-For g++ compilation,  use __g++ main.cpp -o main && ./main <datafile name>__
+For g++ compilation,  use __g++ main.cpp -o main && ./main (datafile name)__
 ### Runtime Instructions
 ##### Input File Formatting
 First you must ensure that your input file is in the correct format of:<br />
