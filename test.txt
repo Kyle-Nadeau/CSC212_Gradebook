@@ -1,10 +1,5 @@
-Testing testing 1 2 3
+Getting students used to using and committing in git.
 Zach A
 Alex B
 Stephen B
-
-
-Group Meeting Times:
-2/16
-2/17
-2/20
+Kyle Nadeau
