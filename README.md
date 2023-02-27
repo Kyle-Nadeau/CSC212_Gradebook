@@ -62,19 +62,21 @@ This is the following menu where you are asked to select if you want to view or 
 
 ![view_choose](https://user-images.githubusercontent.com/98467752/221693770-dff0d4ed-aa79-49dd-bc52-d23efd2951b1.png)<br />
 If you select choose you will be presented with this menu for your choice of viewing one grade or multiple grades.<br />
-![view_choose_individual](https://user-images.githubusercontent.com/98467752/221693952-4f18fd0c-a6ed-46f4-ac30-08ec5dc927e7.png)
+
+![view_choose_individual](https://user-images.githubusercontent.com/98467752/221693952-4f18fd0c-a6ed-46f4-ac30-08ec5dc927e7.png)<br />
 If you choose individual this is the menu presented to you to select which category of grades you would like to view from.<br />
+
 ![view_choose_individual_assignment](https://user-images.githubusercontent.com/98467752/221694057-ff30cae5-d47b-417a-96b9-408cfe6351ec.png)<br />
-Then you will see this menu to enter the number in the chosen category.
+Then you will see this menu to enter the number in the chosen category.<br />
 
 
 ![view_choose_category_project](https://user-images.githubusercontent.com/98467752/221694162-ec93610d-8598-4a93-b5b0-6e5ac2bd95c9.png)<br />
-This example show if you selected category and then project to show how the overall grade of a category is presented.
+This example show if you selected category and then project to show how the overall grade of a category is presented.<br />
 
 
 ![view_choose_course](https://user-images.githubusercontent.com/98467752/221694277-c9357e22-9d90-40d0-8ba9-9786f476213f.png)<br />
-This is an example of viewing the course grades with option 2 only category totals and course overall.
+This is an example of viewing the course grades with option 2 only category totals and course overall.<br />
 
 
 ![change_lab](https://user-images.githubusercontent.com/98467752/221694440-7082e3ee-6e51-42b8-8a5f-a4bb4dcec663.png)<br />
-This is an example of the series of inputs to change a lab grade.
+This is an example of the series of inputs to change a lab grade.<br />
