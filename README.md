@@ -21,7 +21,7 @@ First you must ensure that your input file is in the correct format of:<br />
   -Grades of projects separated by a space the first one out of 150 points and the second one out of 350 points<br />
   -Final_exam<br />
   -Final exam grade out of 100 points<br />
-  -Empty line to signify end of student #1 grades then repeat the student name to empty line formatting for each following student<br />
+  -Empty line to signify end of student then repeat the student name to empty line formatting for each following student<br />
 
 ##### Select Student
 After the input is taken in and the file runs you will be asked to type in a student name(case sensitive) to view or change their grades or an exit option to exit the program.
