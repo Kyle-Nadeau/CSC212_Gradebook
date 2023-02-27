@@ -255,8 +255,8 @@ void gradebook::display_individual(std::string category, std::string num)
 }
 void gradebook::display_category(std::string category)
 {
-    float cat_total;
-    float possible;
+    float cat_total=0;
+    float possible=0;
     int cat = std::stoi(category);
     switch(cat){
         case 1:
