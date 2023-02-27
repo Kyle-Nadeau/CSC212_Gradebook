@@ -5,3 +5,7 @@ Hello! This repository was create to house our program for our gradebook review 
 ### Planning
 For this project out first meeting was to discuss an overall structure we wanted to follow for our program.
 We were able to come up with what we wanted our main gradebook class to be, its private and public data members & methods, and how we wanted our data to be input to the program. We came to the agreement each instantiation of the class as an object should represent a singular student; holding important factors such as their name, grades(as float vectors) for labs/assignments/projects and the exam, and string vectors for the names of each lab/assignment/project. We also figured for our input file we wanted the first line to be a number taken into the program as a singular integer, representing the number of students whose class profiles will be uploaded. This allows us to input multiple students information at a time only using a singular file- by modifying the file contents and number of students, the program will react accordingly. 
+
+### Compilation Instructions
+
+### Runtime Instructions
