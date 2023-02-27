@@ -9,7 +9,7 @@ We were able to come up with what we wanted our main gradebook class to be, its 
 ### Compilation Instructions
 
 ### Runtime Instructions
-##### Formatting
+##### Input File Formatting
 First you must ensure that your input file is in the correct format of:<br />
 
 &ensp;  -Number of students in file<br />
@@ -45,7 +45,7 @@ To choose a category type in the corresponding number: 1 for labs, 2 for assignm
 
 You will then be asked to enter the number of lab, assignment, or projects to change, if you chose exam this step is skipped because there is only one exam.<br />
 
-Next you will be asked to input the updated grade value.<br />
+Next you will be asked to input the updated grade value and then that updated grade will be written directly to the input file.<br />
 
 ##### Continue or Exit
 After you have viewed or changed a grade you will be looped back to the first menu asking for a student name and you can continue to use the program with the steps above.
